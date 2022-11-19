@@ -1,0 +1,217 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  @font-face {
+    font-family: 'Open Sans';
+    font-weight: 600;
+    src: url('~/assets/font/OpenSans-SemiBoldItalic.ttf') format('truetype');
+  }
+}
+
+:root {
+  @apply bg-primary text-sm sm:text-base xl:text-lg scroll-smooth
+}
+
+::selection {
+  @apply bg-sky-300 text-slate-900
+}
+img {
+  filter: var(--image-filter)
+}
+
+:target::before {
+  content: '';
+  display: block;
+  height: 80px;
+  margin-top: -80px;
+}
+
+form.auth {
+  @apply container mx-auto max-w-md p-4 bg-foreground rounded-xl shadow-xl space-y-4
+}
+
+img {
+  @apply border-none
+}
+
+body {
+  @apply bg-primary text-primary;
+  transition: background-color 300ms ease;
+}
+
+section > h1 {
+  @apply text-slate-100
+}
+
+h1, h2 {
+  @apply font-header italic;
+}
+
+h1 {
+  @apply text-xl lg:text-2xl
+}
+
+h2 {
+  @apply text-lg lg:text-xl font-bold
+}
+
+h3 {
+  @apply text-lg xl:text-xl
+}
+
+p {
+  @apply text-base font-normal
+}
+
+article {
+  @apply mx-auto max-w-2xl lg:max-w-4xl space-y-5
+}
+
+footer {
+  @apply flex w-full justify-end space-x-2 mt-4
+}
+
+img {
+  @apply rounded w-full
+}
+
+button {
+  @apply py-3 px-6 rounded cursor-pointer text-base
+}
+
+button[disabled] {
+  @apply text-gray-400
+}
+
+a > button {
+  @apply font-medium
+}
+
+a {
+  @apply text-base text-link font-medium cursor-pointer
+}
+
+section {
+  @apply px-4 space-y-4
+}
+
+label {
+  @apply absolute top-0 left-1 duration-300 origin-top-left font-medium
+}
+
+input[type="submit"] {
+  @apply bg-accent py-2 px-4 rounded cursor-pointer mt-4 shadow
+}
+
+input, textarea {
+  @apply rounded-none block w-full
+  appearance-none bg-transparent
+  focus:outline-none
+}
+
+.title {
+  @apply text-3xl text-zinc-100
+  text-transparent bg-clip-text
+  bg-gradient-to-tr from-indigo-500 to-cyan-500;
+  text-shadow: -2px -2px white
+}
+.subtitle {
+  @apply text-zinc-100 text-lg
+}
+
+.bio-container {
+  @apply w-full pb-2
+  gap-4 space-x-4 snap-x snap-mandatory overflow-x-scroll
+  flex items-center
+  md:space-x-0 md:gap-2
+  md:overflow-x-auto
+  md:snap-none
+  md:mx-auto md:px-4 md:py-2
+  md:justify-around lg:container
+}
+.bio-container > div {
+  @apply snap-center self-stretch
+  shrink-0 md:shrink w-[85%]
+  md:max-w-md md:w-full
+}
+.bio {
+  @apply p-4 rounded-xl shadow-xl bg-foremost
+}
+
+.card {
+  @apply bg-foreground rounded-xl
+  space-y-2 sm:space-y-4 p-4 shadow-lg
+}
+
+.card > header {
+  @apply p-4 bg-accent rounded-t-xl
+}
+
+.card > footer {
+  @apply px-1 space-y-4 flex flex-col justify-center h-full
+}
+
+.card > footer > button, .card > footer > a {
+  @apply w-auto self-end text-sm
+}
+
+.logo {
+  @apply h-12 mb-2
+}
+
+.fade-enter-active,
+.fade-leave-active,
+.page-enter-active,
+.page-leave-active {
+  @apply transition-opacity opacity-100
+}
+
+.fade-enter,
+.fade-leave-to,
+.page-enter,
+.page-leave-active {
+  @apply opacity-0
+}
+
+.scale-enter-active,
+.scale-leave-active {
+  @apply transition ease-in
+}
+  
+.scale-enter,
+.scale-leave-to {
+  @apply transform opacity-0 scale-95
+}
+
+::-webkit-scrollbar {
+  @apply w-4
+}
+
+::-webkit-scrollbar-thumb {
+  @apply bg-clip-content rounded-full bg-white/50 border-4 border-transparent border-solid
+}
+
+::-webkit-scrollbar-track {
+  background: rgba(0,0,0,0.2);
+}
+
+input:-webkit-autofill,
+input:-webkit-autofill:hover, 
+input:-webkit-autofill:focus, 
+input:-webkit-autofill:active  {
+  -webkit-box-shadow: 0 0 0 30px rgba(0,0,0,0.5) inset !important;
+  @apply text-blue-900 rounded pl-2 !important
+}
+
+input:-webkit-autofill {
+  -webkit-text-fill-color: #fff !important;
+}
+
+textarea:not(:placeholder-shown) ~ label,
+input:not(:placeholder-shown) ~ label,
+textarea:focus-within ~ label,
+input:focus-within ~ label {
+  @apply transform scale-75 -translate-y-5 left-0
+}

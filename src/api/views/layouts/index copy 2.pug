@@ -1,0 +1,75 @@
+- var topic = 'Amenity.Fitness'
+- var headline = ' is ready for access'
+- var body = 'Thank you so much for getting started!'
+
+mixin padding-y(amt)
+  tr
+    td(
+      height=amt
+    style=`height: ${amt}px`)
+mixin padding-x(amt)
+  td(
+    width=amt
+    style=`width: ${amt}px`)
+
+doctype html
+html(
+  xmlns="http://www.w3.org/1999/xhtml")
+  head
+    meta(name="format-detection" content="email=no,address=no,date=no")
+    meta(http-equiv="Content-Type" content="text/html; charset=UTF-8")
+    meta(name="color-scheme" content="light dark")
+    meta(name="supported-color-schemes" content="light dark")
+  body
+    table(
+      border="0"
+      cellpadding="0"
+      cellspacing="0"
+      height="100%"
+      width="100%"
+      class="body")
+      tbody
+        +padding-y(32)
+        tr(align="center")
+          +padding-x(8)
+          td
+            table(
+              border="0"
+              cellspacing="0"
+              cellpadding="0"
+              class="main pb-5")
+              tbody
+                tr
+                  td
+                    div(class="border")
+                      div(
+                        class="header")
+                        img(
+                          src="https://firebasestorage.googleapis.com/v0/b/amenity-fitness.appspot.com/o/logo.png?alt=media&token=bd5a755d-fffd-49c6-939e-4f1d95b0dab1"
+                          width="74"
+                          height="34"
+                          aria-hidden="true"
+                          alt="Amenity")
+                      div(
+                        align="center"
+                        class="container mdv2rw")
+                        block content
+                    div(class="text-left")
+                      div(
+                        class="type line-4.5 text-center text-gray-500 font-sm pt-3")
+                        if footer
+                          div
+                            | #{ footer }
+                        div(
+                          class="ltr")
+                          | Amenity: Lifestyle & Fitness Inc. 2022
+                          br
+                          a(
+                            class="type-2 line-4.5 text-gray-500 font-sm text-center pt-3 afal")
+                            | Vancouver, British Columbia, Canada
+          +padding-x(8)
+        +padding-y(32)
+    
+    block css
+
+

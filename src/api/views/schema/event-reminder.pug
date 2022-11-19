@@ -1,0 +1,33 @@
+extends layouts/actions.pug
+
+block json
+  script(type="application/ld+json").
+    {
+      "@context": "http://schema.org",
+      "@type": "EventReservation",
+      "reservationNumber": "E123456789",
+      "reservationStatus": "http://schema.org/Confirmed",
+      "underName": {
+        "@type": "Person",
+        "name": "John Smith"
+      },
+      "reservationFor": {
+        "@type": "Event",
+        "name": "Foo Fighters Concert",
+        "startDate": "2027-03-06T19:30:00-08:00",
+        "location": {
+          "@type": "Place",
+          "name": "AT&T Park",
+          "address": {
+            "@type": "PostalAddress",
+            "streetAddress": "24 Willie Mays Plaza",
+            "addressLocality": "San Francisco",
+            "addressRegion": "CA",
+            "postalCode": "94107",
+            "addressCountry": "US"
+          }
+        }
+      }
+    
+block content
+  h1 Welcome

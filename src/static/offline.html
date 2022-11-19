@@ -1,0 +1,185 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <title>You are offline</title>
+    <style>
+      :root {
+        --light-bg-color: rgb(224, 231, 255);
+        --dark-bg-color: rgb(31, 41, 55);
+        --primary-color: #F44336;
+      }
+
+      body {
+        box-sizing: border-box;
+        padding: 1rem;
+        margin: 0;
+        height: 100vh;
+        font-family: helvetica, arial, sans-serif;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        flex-direction: column;
+      }
+      
+      circle {
+        fill: transparent;
+        stroke: var(--primary-color);
+        stroke-width: 0.5em;
+        transform-origin: center center;
+        animation: progress-circular-dash 1.4s ease-in-out infinite;
+        stroke-dasharray: 180, 20000;
+        stroke-dashoffset: 0px;
+        stroke-linecap: round;
+        transition: all .6s ease-in-out;
+      }
+      
+      footer {
+        display: flex;
+      }
+      
+      h1 {
+        font-style: italic;
+      }
+      
+      main {
+        width: 100%;
+        max-width: 500px;
+      }
+      
+      p {
+        line-height: 1.5rem;
+      }
+      
+      .progress-container {
+        padding: 2rem;
+        margin: 1rem;
+        position: relative;
+        display: inline-flex;
+        vertical-align: middle;
+        justify-content: center;
+        align-items: center;
+      }
+      
+      svg {
+        overflow: visible;
+        margin: auto;
+        position: absolute;
+        top: 0;
+        bottom: 0;
+        left: 0;
+        right: 0;
+        z-index: 0;
+        position: absolute;
+        animation: progress-circular-rotate 1.4s linear infinite;
+        transform-origin: center center;
+      }
+
+      @keyframes progress-circular-dash {
+        0% {
+          stroke-dasharray: 10, 20000;
+          stroke-dashoffset: 0px;
+        }
+
+        50% {
+          stroke-dasharray: 300, 20000;
+          stroke-dashoffset: -15px;
+        }
+
+        100% {
+          stroke-dasharray: 300, 20000;
+          stroke-dashoffset: -300px;
+        }
+      }
+
+      @keyframes progress-circular-rotate {
+        0% {
+          transform: rotate(0)
+        }
+        100% {
+          transform: rotate(360deg)
+        }
+      }
+      
+      @media (prefers-color-scheme: dark) {
+        html {
+          background: var(--dark-bg-color);
+        }
+        h1, p {
+          color: white;
+        }
+        button {
+          font-size: 16px;
+          padding: 8px 16px;
+          font-weight: 700;
+          border-radius: 4px;
+          background: white;
+          border: none;
+          flex-grow: 1;
+        }
+      }
+      
+      @media (prefers-color-scheme: light) {
+        html {
+          background: var(--light-bg-color);
+        }
+        h1, p {
+          color: black;
+        }
+        button {
+          font-size: 16px;
+          padding: 8px 16px;
+          font-weight: 700;
+          border-radius: 4px;
+          border: none;
+          background: var(--dark-bg-color);
+          color: white;
+          flex-grow: 1;
+        }
+      }
+      
+      </style>
+  </head>
+  <body>
+    <div class="progress-container">
+      <svg height="100%" width="100%" viewBox="0 0 100 100">
+        <circle cx="50%" cy="50%" r="50%"/>
+      </svg>
+    </div>
+    <main>
+      <h1>You are offline!</h1>
+      <p>
+        Page will reload when reconnected<br>
+        Click the button below to try reloading manually..
+      </p>
+      <footer>
+        <button type="button">⤾ Reload</button>
+      </footer>
+    </main>
+    <script>
+      document.querySelector("button").addEventListener("click", () => {
+        window.location.reload();
+      });
+      window.addEventListener('online', () => {
+        window.location.reload();
+      });
+      async function checkNetworkAndReload() {
+        try {
+          const response = await fetch('.');
+          if (response.status >= 200 && response.status < 500) {
+            window.location.reload();
+            return;
+          }
+        } catch {
+          // Unable to connect to the server, ignore.
+        }
+        window.setTimeout(checkNetworkAndReload, 2500);
+      }
+
+      // checkNetworkAndReload();
+    </script>
+  </body>
+</html>

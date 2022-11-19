@@ -1,0 +1,26 @@
+extends layouts/actions.pug
+
+block json
+  script(type="application/ld+json").
+    {
+      "@context": "http://schema.org",
+      "@type": "Invoice",
+      "accountId": "123-456-789",
+      "minimumPaymentDue": {
+        "@type": "PriceSpecification",
+        "price": "#{ price }"
+      },
+      "paymentDue": "2015-11-22T08:00:00+00:00",
+      "paymentStatus": "PaymentAutomaticallyApplied",
+      "provider": {
+        "@type": "Organization",
+        "name": "Amenity Fitness"
+      },
+      "totalPaymentDue": {
+        "@type": "PriceSpecification",
+        "price": "#{ price }"
+      }
+    }
+    
+block content
+  h1 Welcome

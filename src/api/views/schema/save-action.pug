@@ -1,0 +1,20 @@
+extends layouts/actions.pug
+
+block json
+  script(type="application/ld+json").
+    {
+      "@context": "http://schema.org",
+      "@type": "EmailMessage",
+      "potentialAction": {
+        "@type": "SaveAction",
+        "name": "Save Offer",
+        "handler": {
+          "@type": "HttpActionHandler",
+          "url": "https://offers-everywhere.com/save?offerId=xyz789"
+        }
+      },
+      "description": "$5 meal at Joe's Diner"
+    }
+    
+block content
+  h1 Welcome

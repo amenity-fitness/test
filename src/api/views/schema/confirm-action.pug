@@ -1,0 +1,20 @@
+extends layouts/actions.pug
+
+block json
+  script(type="application/ld+json").
+    {
+      "@context": "http://schema.org",
+      "@type": "EmailMessage",
+      "potentialAction": {
+        "@type": "ConfirmAction",
+        "name": "Approve Expense",
+        "handler": {
+          "@type": "HttpActionHandler",
+          "url": "https://myexpenses.com/approve?expenseId=abc123"
+        }
+      },
+      "description": "Approval request for John's $10.13 expense for office supplies"
+    }
+    
+block content
+  h1 Welcome

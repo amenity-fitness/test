@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html {{ HTML_ATTRS }}>
+  <head {{ HEAD_ATTRS }}>
+    {{ HEAD }}
+  </head>
+  <body {{ BODY_ATTRS }}>
+    <script>
+      const light = {
+        '--text-primary': '#0f172a',
+        '--text-link': '#0284c7',
+        '--bg-primary': '#047857',
+        '--bg-accent': '#fef9c3',
+        '--bg-foreground': '#f3f4f6',
+        '--bg-foremost': '#f8fafc',
+        '--icon-filter': '1',
+        '--normal-weight': '400'
+      },
+      dark = {
+        '--text-primary': '#f8fafc',
+        '--text-link': '#38bdf8',
+        '--bg-primary': '#1e293b',
+        '--bg-accent': '#0369a1',
+        '--bg-foreground': '#334155',
+        '--bg-foremost': '#475569',
+        '--image-filter': 'brightness(0.9) contrast(1.1)',
+        '--normal-weight': '300'
+      }
+      function setProp(prop, val) {
+        document.documentElement
+          .style.setProperty(prop, val)
+      }
+      const { localStorage } = window
+      if (localStorage['theme'] == 'dark' || localStorage['theme'] !== 'light' && window.matchMedia('(prefers-color-scheme: dark)').matches) {
+        for (let key in dark) {
+          setProp(key, dark[key])
+        }
+      } else if (localStorage['theme'] == 'light' || !window.matchMedia('(prefers-color-scheme: dark)').matches) {
+        for (let key in light) {
+          setProp(key, light[key])
+        }
+      }
+    </script>
+    {{ APP }}
+  </body>
+</html>

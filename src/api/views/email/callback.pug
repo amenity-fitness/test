@@ -1,0 +1,246 @@
+extends ../layouts/index.pug
+
+mixin y-spacer(amt)
+  td(
+    height=amt
+    colspan!=attributes.cols
+    class!=attributes.class
+    class="font-0 container")
+    | &nbsp;
+
+block css
+  style.
+    @media screen and (min-width: 600px) {
+      .mdv2rw {
+        padding: 40px 40px;
+      }
+    }
+    .gradient {
+      background:#000;
+      background-image:linear-gradient(#334155,#334155);
+      color:#fff;
+    }
+    .blend-screen {
+      background:#000;
+      mix-blend-mode:screen;
+    }
+    .blend-difference {
+      background:#000;
+      mix-blend-mode:difference;
+    }
+    .afal {
+      color: #b0b0b0;
+      text-decoration: none;
+    }
+    .abml {
+      font-family: Roboto-Medium,Helvetica, Arial,sans-serif;
+      text-decoration: none;
+    }
+    .container {
+      padding:40px 20px
+    }
+    .text-gray-800 {
+      color:rgb(128,128,128)
+    }
+    @media (prefers-color-theme: dark) {
+      .abml {
+        color:#fff !important;
+      }
+      .text-gray-500 {
+        color:rgba(255,255,255,0.54)
+      }
+      .text-gray-800 {
+        color:rgba(255,255,255,0.87)
+      }
+    }
+    @media (prefers-color-theme: light) {
+      .abml {
+        color:#000 !important;
+      }
+      .text-gray-500 {
+        color:rgba(0,0,0,0.54)
+      }
+      .text-gray-800 {
+        color:rgba(0,0,0,0.87)
+      }
+    }
+    .header {
+      background-color: #15803d;
+      border-radius: 8px 8px 0 0;
+      padding: 8px 8px 4px 8px;
+    }
+    .pt-5 {
+      padding-top:20px
+    }
+    .pt-3 {
+      padding-top:12px
+    }
+    .pr-2 {
+      padding-right:8px
+    }
+    .ml-2 {
+      margin-left:8px
+    }
+    .mt-2 {
+      margin-top:8px
+    }
+    .mb-1 {
+      margin-bottom:4px
+    }
+    .mb-4 {
+      margin-bottom:16px
+    }
+    .pb-5 {
+      padding-bottom:20px
+    }
+    .pb-6 {
+      padding-bottom:24px
+    }
+    .font-sm {
+      font-size:11px
+    }
+    .font-base {
+      font-size:12px
+    }
+    .font-md {
+      font-size:14px
+    }
+    .font-lg {
+      font-size:24px
+    }
+    .ltr {
+      direction:ltr;
+    }
+    .body {
+      min-width:348px;
+    }
+    .border {
+      border-style:solid;
+      border-width:thin;
+      border-color:#dadce0;
+      border-radius:8px;
+    }
+    .text-center {
+      text-align: center
+    }
+    .text-left {
+      text-align:left
+    }
+    .text-inherit {
+      text-decoration:inherit
+    }
+    .main {
+      max-width:516px;
+      min-width:220px;
+    }
+    .text-center {
+      text-align:center
+    }
+    .type {
+      font-family:'Google Sans',Roboto,RobotoDraft,Helvetica,Arial,sans-serif;
+    }
+    .type-2 {
+      font-family:Roboto-Regular,Helvetica,Arial,sans-serif;
+    }
+    .line-normal {
+      line-height:normal;
+    }
+    .line-4 {
+      line-height:16px;
+    }
+    .line-4.5 {
+      line-height:18px;
+    }
+    .line-5 {
+      line-height:20px;
+    }
+    .line-8 {
+      line-height:32px;
+    }
+    .pt-8 {
+      padding-top:32px
+    }
+    .border-b {
+      border-bottom:thin solid #dadce0;
+    }
+    .break-word {
+      word-break:break-word
+    }
+    .avatar {
+      width:20px;
+      height:20px;
+      vertical-align:sub;
+      border-radius:50%;
+    }
+    .button {
+      color:#ffffff;
+      font-weight:400;
+      text-decoration:none;
+      display:inline-block;
+      padding:10px 24px;
+      border-radius:5px;
+      min-width:90px;
+    }
+    .alt-cta {
+      padding-top:20px;
+      color: rgba(128,128,128,0.9);
+      letter-spacing:0.3px
+    }
+    .cta-btn {
+      font-family: Google Sans,Roboto,RobotoDraft,Helvetica,Arial,sans-serif;
+      line-height: 16px;
+      color: #ffffff;
+      font-weight: 400;
+      text-decoration: none;
+      font-size: 14px;
+      display:inline-block;
+      padding: 10px 24px;
+      background-color: #4184F3;
+      border-radius: 5px;
+      min-width: 90px;
+    }
+block content
+
+  div(
+    class="border-b line-8 pb-6 break-word")
+    div(class="text-left type font-lg")
+      a(class="abml")
+        | #{ topic }
+      | !{ headline }
+    //- table(align="center" class="mt-2")
+      tbody
+        tr(class="line-normal")
+          td(
+            align="right"
+            class="pr-2")
+            img(
+              width="20"
+              height="20"
+              src="https://firebasestorage.googleapis.com/v0/b/amenity-fitness.appspot.com/o/avatar.jpeg?alt=media&token=4b0ed504-4257-4c5a-8db8-8442bb8c65f8"
+              class="avatar"
+              alt
+            )
+          td
+            a(
+              class="line-5 type text-gray-800 font-md")
+              | amenity.lifestylefitness@gmail.com
+
+  div(
+    class="type-2 line-5 font-md text-left pt-5")
+    br
+    | !{ body }
+    if cta
+      div(class="text-center pt-8")
+        a(
+          target="_blank"
+          class="cta-btn"
+          href=cta.url)
+          | #{ cta.text }
+    if cta
+      div(
+        class="line-4 font-base text-center alt-cta")
+        | #{ cta.alt }
+        br
+        a(
+          class="text-gray-500 text-inherit afal")
+          | #{ cta.altUrl }

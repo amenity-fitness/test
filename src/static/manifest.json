@@ -1,0 +1,37 @@
+{
+  "short_name": "Amenity Fitness",
+  "name": "Amenity Fitness",
+  "icons": [
+    {
+      "src": "icon-192x192.png",
+      "type": "image/png",
+      "sizes": "192x192",
+      "purpose": "any"
+    },
+    {
+      "src": "icon-512x512.png",
+      "type": "image/png",
+      "sizes": "512x512",
+      "purpose": "any"
+    },
+    {
+      "src": "icon-192x192.png",
+      "type": "image/png",
+      "sizes": "192x192",
+      "purpose": "maskable"
+    },
+    {
+      "src": "icon-512x512.png",
+      "type": "image/png",
+      "sizes": "512x512",
+      "purpose": "maskable"
+    }
+  ],
+  "background_color": "#1e293b",
+  "theme_color": "#1e293b",
+  "start_url": "/app",
+  "display": "fullscreen",
+  "orientation": "portrait",
+  "scope": "/",
+  "description": "Helping Canadians make great use of any space"
+}

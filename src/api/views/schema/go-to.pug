@@ -1,0 +1,23 @@
+extends layouts/actions.pug
+
+block json
+  script(type="application/ld+json").
+    {
+      "@context": "http://schema.org",
+      "@type": "EmailMessage",
+      "description": "Watch the 'Avengers' movie online",
+      "potentialAction": {
+        "@type": "ViewAction",
+        "url": "https://watch-movies.com/watch?movieId=abc123",
+        "name": "Watch movie"
+      },
+      "publisher": {
+        "@type": "Organization",
+        "name": "Google Play",
+        "url": "https://play.google.com",
+        "url/googlePlus": "https://plus.google.com/106886664866983861036"
+      }
+    }
+    
+block content
+  h1 Welcome

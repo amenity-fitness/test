@@ -1,0 +1,27 @@
+extends layouts/actions.pug
+
+block json
+  script(type="application/ld+json").
+    [{
+      "@context": "http://schema.org/",
+      "@type": "Organization",
+      "logo": "https://www.gstatic.com/images/branding/product/1x/googleg_48dp.png"
+    },{
+      "@context": "http://schema.org/",
+      "@type": "EmailMessage",
+      "subjectLine": "[Important] Please add subject line in annotation"
+    },{
+      "@context": "http://schema.org/",
+      "@type": "DiscountOffer",
+      "description": "20% off",
+      "discountCode": "PROMO",
+      "availabilityStarts": "2021-09-28T17:07:55-07:00",
+      "availabilityEnds": "2021-10-01T17:07:55-07:00"
+    },{
+      "@context": "http://schema.org/",
+      "@type": "PromotionCard",
+      "image": "https://www.google.com/gmail-for-marketers/promo-tab/markup-tool/sample.png"
+    }]
+
+block content
+  h1 Welcome
